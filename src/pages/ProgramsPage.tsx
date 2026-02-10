@@ -80,10 +80,15 @@ const filters: { label: string; value: Category }[] = [
 const ProgramsPage = () => {
   const [active, setActive] = useState<Category>("all");
   const [activeSlide, setActiveSlide] = useState(0);
-  const programSlides = [programSlideOne, awarenessSlide, awarenessSlide, programsSlide, teamSlide];
+  const programSlides = [
+    { src: programSlideOne, y: 40 },
+    { src: awarenessSlide, y: 65 },
+    { src: awarenessSlide, y: 65 },
+    { src: programsSlide, y: 40 },
+    { src: teamSlide, y: 40 },
+  ];
 
   const filtered = active === "all" ? programs : programs.filter((p) => p.category === active);
-  const headerImageY = 40;
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -103,11 +108,11 @@ const ProgramsPage = () => {
           <div className="absolute inset-0">
             {programSlides.map((slide, index) => (
               <img
-                key={`${slide}-${index}`}
-                src={slide}
+                key={`${slide.src}-${index}`}
+                src={slide.src}
                 alt="Programs background"
                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${index === activeSlide ? "opacity-100" : "opacity-0"}`}
-                style={{ objectPosition: `center ${headerImageY}%` }}
+                style={{ objectPosition: `center ${slide.y}%` }}
               />
             ))}
             <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/75 to-foreground/35" />
