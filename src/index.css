@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 99%;
+    --foreground: 0 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 10% 15%;
+
+    --primary: 0 72% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 15% 95%;
+    --secondary-foreground: 0 10% 15%;
+
+    --muted: 0 10% 94%;
+    --muted-foreground: 0 5% 45%;
+
+    --accent: 0 72% 51%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 10% 90%;
+    --input: 0 10% 90%;
+    --ring: 0 72% 51%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 10% 26%;
+    --sidebar-primary: 0 72% 51%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 10% 96%;
+    --sidebar-accent-foreground: 0 10% 15%;
+    --sidebar-border: 0 8% 91%;
+    --sidebar-ring: 0 72% 51%;
+  }
+
+  .dark {
+    --background: 0 10% 7%;
+    --foreground: 0 5% 96%;
+    --card: 0 8% 11%;
+    --card-foreground: 0 5% 96%;
+    --popover: 0 8% 11%;
+    --popover-foreground: 0 5% 96%;
+    --primary: 0 72% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 10% 16%;
+    --secondary-foreground: 0 5% 96%;
+    --muted: 0 10% 16%;
+    --muted-foreground: 0 5% 60%;
+    --accent: 0 72% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 8% 20%;
+    --input: 0 8% 20%;
+    --ring: 0 72% 55%;
+    --sidebar-background: 0 10% 8%;
+    --sidebar-foreground: 0 5% 96%;
+    --sidebar-primary: 0 72% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 8% 14%;
+    --sidebar-accent-foreground: 0 5% 96%;
+    --sidebar-border: 0 8% 14%;
+    --sidebar-ring: 0 72% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-foreground;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply py-12 md:py-20 px-4 md:px-6;
+  }
+
+  .container-max {
+    @apply max-w-[1200px] mx-auto w-full;
+  }
+}
