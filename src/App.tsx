@@ -9,6 +9,11 @@ import DonatePage from "./pages/DonatePage";
 import ProgramsPage from "./pages/ProgramsPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
+import ThalassemiaPage from "./pages/ThalassemiaPage";
+import MedicineDistributionPage from "./pages/MedicineDistributionPage";
+import EducationVocationalTrainingPage from "./pages/EducationVocationalTrainingPage";
+import AwarenessCampaignsPage from "./pages/AwarenessCampaignsPage";
+import TeamThalassemiaFightersPage from "./pages/TeamThalassemiaFightersPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,8 +33,13 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/thalassemia" element={<ThalassemiaPage />} />
           <Route path="/donate" element={<DonatePage />} />
           <Route path="/programs" element={<ProgramsPage />} />
+          <Route path="/programs/medicine-distribution" element={<MedicineDistributionPage />} />
+          <Route path="/programs/education-vocational-training" element={<EducationVocationalTrainingPage />} />
+          <Route path="/programs/awareness-campaigns" element={<AwarenessCampaignsPage />} />
+          <Route path="/programs/team-thalassemia-fighters" element={<TeamThalassemiaFightersPage />} />
           <Route path="/contact" element={<ContactPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

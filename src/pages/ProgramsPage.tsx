@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import DonationCTA from "@/components/DonationCTA";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import {
   Pill, BookOpen, Megaphone, Users, Microscope, ArrowRight,
 } from "lucide-react";
@@ -15,6 +16,7 @@ interface Program {
   category: Category;
   description: string;
   impact: string;
+  detailsPath?: string;
 }
 
 const programs: Program[] = [
@@ -25,6 +27,7 @@ const programs: Program[] = [
     description:
       "Monthly distribution of iron chelation therapy, folic acid, and essential medications to registered patients — free of cost. We ensure no patient misses a dose.",
     impact: "400+ patients receive medicines every month",
+    detailsPath: "/programs/medicine-distribution",
   },
   {
     icon: <BookOpen className="w-6 h-6" />,
@@ -33,6 +36,7 @@ const programs: Program[] = [
     description:
       "Scholarships, school supplies, and vocational skill-building for thalassemia patients and their siblings — because treatment alone isn't enough for a full life.",
     impact: "120+ students supported annually",
+    detailsPath: "/programs/education-vocational-training",
   },
   {
     icon: <Megaphone className="w-6 h-6" />,
@@ -41,6 +45,7 @@ const programs: Program[] = [
     description:
       "Community outreach, carrier screening drives, and public seminars to educate families about prevention, early diagnosis, and the importance of regular treatment.",
     impact: "50+ campaigns across 15 districts",
+    detailsPath: "/programs/awareness-campaigns",
   },
   {
     icon: <Users className="w-6 h-6" />,
@@ -49,6 +54,7 @@ const programs: Program[] = [
     description:
       "A volunteer-led initiative connecting patients, families, and supporters into a strong mutual-aid network — offering emotional support, logistics help, and advocacy.",
     impact: "800+ active volunteers nationwide",
+    detailsPath: "/programs/team-thalassemia-fighters",
   },
   {
     icon: <Microscope className="w-6 h-6" />,
@@ -127,10 +133,19 @@ const ProgramsPage = () => {
                     <p className="text-xs font-semibold text-primary">{p.impact}</p>
                   </div>
 
-                  <Button variant="ghost" size="sm" className="text-primary font-semibold px-0 hover:bg-transparent hover:underline self-start">
-                    Learn More
-                    <ArrowRight className="w-4 h-4" />
-                  </Button>
+                  {p.detailsPath ? (
+                    <Button asChild variant="ghost" size="sm" className="text-primary font-semibold px-0 hover:bg-transparent hover:underline self-start">
+                      <Link to={p.detailsPath}>
+                        Learn More
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </Button>
+                  ) : (
+                    <Button variant="ghost" size="sm" disabled className="px-0 self-start text-muted-foreground">
+                      Learn More
+                      <ArrowRight className="w-4 h-4" />
+                    </Button>
+                  )}
                 </div>
               ))}
             </div>

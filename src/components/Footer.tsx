@@ -3,14 +3,18 @@ import hadyaLogo from "@/assets/hadya-logo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="bg-primary text-primary-foreground border-t border-primary/80">
       <div className="container-max section-padding">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <img src={hadyaLogo} alt="Hadya Foundation" className="w-8 h-8 object-contain brightness-0 invert" />
-              <span className="text-lg font-extrabold">Hadya Foundation</span>
+              <div className="w-9 h-9 rounded-md bg-white/95 flex items-center justify-center p-1">
+                <img src={hadyaLogo} alt="Hadya Foundation" className="w-full h-full object-contain" />
+              </div>
+              <span className="text-lg font-extrabold">
+                Hadya<span className="text-white"> Foundation</span>
+              </span>
             </div>
             <p className="text-sm opacity-70 leading-relaxed">
               Empowering lives affected by thalassemia through care, awareness, and community support.
@@ -56,7 +60,7 @@ const Footer = () => {
                 <a
                   key={s}
                   href="#"
-                  className="w-10 h-10 rounded-lg bg-background/10 hover:bg-background/20 flex items-center justify-center text-sm font-bold transition-colors"
+                  className="w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-sm font-bold transition-colors"
                   aria-label={s}
                 >
                   {s[0]}
@@ -66,7 +70,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-background/15 text-center">
+        <div className="mt-12 pt-6 border-t border-white/20 text-center">
           <p className="text-xs opacity-50">
             © {new Date().getFullYear()} Hadya Foundation. All rights reserved.
           </p>
