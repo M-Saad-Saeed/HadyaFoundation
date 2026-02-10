@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import DonationCTA from "@/components/DonationCTA";
 import { Users, CheckCircle2 } from "lucide-react";
+import teamHeaderBg from "@/assets/Team Thalassemia.jpg";
 
 const TeamThalassemiaFightersPage = () => {
   return (
@@ -9,16 +10,22 @@ const TeamThalassemiaFightersPage = () => {
       <Header />
 
       <main>
-        <section className="section-padding bg-muted/50 border-b border-border">
-          <div className="container-max">
-            <span className="text-xs font-bold uppercase tracking-widest text-primary mb-2 block">
-              Program Details
-            </span>
-            <h1 className="text-3xl md:text-5xl font-extrabold mb-4">Team Thalassemia Fighters</h1>
-            <p className="text-muted-foreground max-w-3xl leading-relaxed">
-              In 2022, our aim was to assemble a team of 50 thalassemia fighters dedicated to education,
-              vocational training, and maintaining good health.
-            </p>
+        <section className="relative overflow-hidden section-padding border-b border-border min-h-[320px] md:min-h-[400px]">
+          <div className="absolute inset-0">
+            <img src={teamHeaderBg} alt="Team Thalassemia Fighters" className="w-full h-full object-cover object-center" />
+            <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/70 to-foreground/40" />
+          </div>
+          <div className="relative container-max flex items-center min-h-[320px] md:min-h-[400px]">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-primary mb-2 block">
+                Program Details
+              </span>
+              <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-background">Team Thalassemia Fighters</h1>
+              <p className="text-background/85 max-w-3xl leading-relaxed">
+                In 2022, our aim was to assemble a team of 50 thalassemia fighters dedicated to education,
+                vocational training, and maintaining good health.
+              </p>
+            </div>
           </div>
         </section>
 

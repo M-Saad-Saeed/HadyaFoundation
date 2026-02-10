@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import DonationCTA from "@/components/DonationCTA";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import programSlideOne from "@/assets/14-scaled.jpg";
+import awarenessSlide from "@/assets/Awareness.jpg";
+import programsSlide from "@/assets/Our Program.jpg";
+import teamSlide from "@/assets/Team Thalassemia.jpg";
 import {
   Pill, BookOpen, Megaphone, Users, Microscope, ArrowRight,
 } from "lucide-react";
@@ -75,8 +79,19 @@ const filters: { label: string; value: Category }[] = [
 
 const ProgramsPage = () => {
   const [active, setActive] = useState<Category>("all");
+  const [activeSlide, setActiveSlide] = useState(0);
+  const programSlides = [programSlideOne, awarenessSlide, awarenessSlide, programsSlide, teamSlide];
 
   const filtered = active === "all" ? programs : programs.filter((p) => p.category === active);
+  const headerImageY = 40;
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % programSlides.length);
+    }, 3500);
+
+    return () => window.clearInterval(timer);
+  }, [programSlides.length]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -84,15 +99,29 @@ const ProgramsPage = () => {
 
       <main>
         {/* Page Header */}
-        <section className="section-padding bg-muted/50 border-b border-border">
-          <div className="container-max text-center">
+        <section className="relative overflow-hidden section-padding border-b border-border min-h-[360px] md:min-h-[440px]">
+          <div className="absolute inset-0">
+            {programSlides.map((slide, index) => (
+              <img
+                key={`${slide}-${index}`}
+                src={slide}
+                alt="Programs background"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${index === activeSlide ? "opacity-100" : "opacity-0"}`}
+                style={{ objectPosition: `center ${headerImageY}%` }}
+              />
+            ))}
+            <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/75 to-foreground/35" />
+          </div>
+          <div className="relative container-max text-center flex items-center min-h-[360px] md:min-h-[440px]">
+            <div className="w-full">
             <span className="text-xs font-bold uppercase tracking-widest text-primary mb-2 block">
               What We Do
             </span>
-            <h1 className="text-3xl md:text-5xl font-extrabold mb-4">Our Programs &amp; Services</h1>
-            <p className="text-muted-foreground max-w-lg mx-auto leading-relaxed">
+            <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-background">Our Programs &amp; Services</h1>
+            <p className="text-background/85 max-w-lg mx-auto leading-relaxed">
               From medicine to education, screening to community building — we provide end-to-end support so no patient fights thalassemia alone.
             </p>
+            </div>
           </div>
         </section>
 

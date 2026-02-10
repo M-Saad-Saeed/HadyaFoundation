@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import DonationCTA from "@/components/DonationCTA";
 import { Megaphone, CheckCircle2 } from "lucide-react";
+import awarenessHeaderBg from "@/assets/Awareness.jpg";
 
 const AwarenessCampaignsPage = () => {
   return (
@@ -9,17 +10,23 @@ const AwarenessCampaignsPage = () => {
       <Header />
 
       <main>
-        <section className="section-padding bg-muted/50 border-b border-border">
-          <div className="container-max">
-            <span className="text-xs font-bold uppercase tracking-widest text-primary mb-2 block">
-              Program Details
-            </span>
-            <h1 className="text-3xl md:text-5xl font-extrabold mb-4">Awareness Campaigns</h1>
-            <p className="text-muted-foreground max-w-3xl leading-relaxed">
-              The main goal of the Hadya Foundation is to consistently provide iron chelation medicine
-              to thalassemia fighters while respecting their dignity. Alhamdulillah, by the end of 2023,
-              we provide medicine to 327 children every month.
-            </p>
+        <section className="relative overflow-hidden section-padding border-b border-border min-h-[320px] md:min-h-[400px]">
+          <div className="absolute inset-0">
+            <img src={awarenessHeaderBg} alt="Awareness Campaigns" className="w-full h-full object-cover object-[center_65%]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-foreground/85 via-foreground/70 to-foreground/40" />
+          </div>
+          <div className="relative container-max flex items-center min-h-[320px] md:min-h-[400px]">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-primary mb-2 block">
+                Program Details
+              </span>
+              <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-background">Awareness Campaigns</h1>
+              <p className="text-background/85 max-w-3xl leading-relaxed">
+                The main goal of the Hadya Foundation is to consistently provide iron chelation medicine
+                to thalassemia fighters while respecting their dignity. Alhamdulillah, by the end of 2023,
+                we provide medicine to 327 children every month.
+              </p>
+            </div>
           </div>
         </section>
 
